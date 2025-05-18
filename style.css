@@ -362,6 +362,10 @@ h67 {
   overflow-x: hidden;
 }
 
+.choose_us .ish {
+  overflow-x: hidden;
+}
+
 .issues_body::-webkit-scrollbar {
   display: none;
 }
@@ -406,7 +410,7 @@ h67 {
   min-width: 420px;
   gap: 20px;
   position: relative;
-  transition: left 0.2s;
+  transition: left 0.5s;
 }
 
 .doctors::-webkit-scrollbar {
@@ -525,6 +529,7 @@ h67 {
   align-items: center;
   justify-content: center;
   gap: 20px;
+  cursor: pointer;
 }
 
 .issues_body .issues {

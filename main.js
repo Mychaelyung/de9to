@@ -68,3 +68,80 @@ appointmentNextBtn.addEventListener("click", function () {
 appointmentPrevBtn.addEventListener("click", function () {
   moveAppointmentCarousel("right");
 });
+
+// Blog transition
+const blogBtns = document.querySelectorAll(
+  ".appointment .issues_header .btns img"
+);
+const blogCarousel = document.querySelector(".doctors");
+
+const blogPrevBtn = blogBtns[2];
+const blogNextBtn = blogBtns[3];
+
+let currentBlog = 0;
+const multiplierb = 420;
+
+function moveBlogCarousel(moveTo) {
+  if (moveTo === "left") {
+    if (currentBlog < 3) {
+      currentBlog++;
+      blogCarousel.style.left =
+        "-" + (currentBlog * multiplierb + currentBlog * 20) + "px";
+      return currentBlog;
+    }
+  }
+  if (moveTo === "right") {
+    if (currentBlog > 0) {
+      currentBlog--;
+      blogCarousel.style.left =
+        "-" + (currentBlog * multiplierb + currentBlog * 20) + "px";
+      return currentBlog;
+    }
+  }
+}
+
+blogNextBtn.addEventListener("click", function () {
+  moveBlogCarousel("left");
+});
+
+blogPrevBtn.addEventListener("click", function () {
+  moveBlogCarousel("right");
+});
+
+// Choose transition
+const chooseBtns = document.querySelectorAll(".choose_us .btns img");
+
+const chooseCarousel = document.querySelector(".ish");
+
+const choosePrevBtn = chooseBtns[0];
+const chooseNextBtn = chooseBtns[1];
+
+let currentChoose = 0;
+const multiplierc = 420;
+
+function moveChooseCarousel(moveTo) {
+  if (moveTo === "left") {
+    if (currentChoose < 3) {
+      currentChoose++;
+      chooseCarousel.style.left =
+        "-" + (currentChoose * multiplierc + currentChoose * 20) + "px";
+      return currentChoose;
+    }
+  }
+  if (moveTo === "right") {
+    if (currentChoose > 0) {
+      currentChoose--;
+      chooseCarousel.style.left =
+        "-" + (currentChoose * multiplierc + currentChoose * 20) + "px";
+      return currentChoose;
+    }
+  }
+}
+
+chooseNextBtn.addEventListener("click", function () {
+  moveChooseCarousel("left");
+});
+
+choosePrevBtn.addEventListener("click", function () {
+  moveChooseCarousel("right");
+});
