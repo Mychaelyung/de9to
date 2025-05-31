@@ -73,7 +73,8 @@ appointmentPrevBtn.addEventListener("click", function () {
 const blogBtns = document.querySelectorAll(
   ".appointment .issues_header .btns img"
 );
-const blogCarousel = document.querySelector(".doctors");
+
+const blogCarousel = document.getElementById("blog");
 
 const blogPrevBtn = blogBtns[2];
 const blogNextBtn = blogBtns[3];
