@@ -357,14 +357,30 @@ h67 {
 }
 
 .issues_body {
+  /* position: relative; */
+  /* display: flex; */
+  /* align-items: stretch; */
+  /* gap: 24px; */
+  overflow-x: hidden;
+  /* transition: left 0.5s; */
+}
+
+#dental {
+  position: relative;
   display: flex;
   align-items: stretch;
   gap: 24px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  transition: left 0.5s;
 }
 
-.choose_us .ish {
-  overflow-x: hidden;
+#choose {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  /* overflow-x: hidden; */
+  transition: left 0.5s;
 }
 
 .issues_body::-webkit-scrollbar {

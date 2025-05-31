@@ -112,7 +112,7 @@ blogPrevBtn.addEventListener("click", function () {
 // Choose transition
 const chooseBtns = document.querySelectorAll(".choose_us .btns img");
 
-const chooseCarousel = document.querySelector(".ish");
+const chooseCarousel = document.getElementById("choose");
 
 const choosePrevBtn = chooseBtns[0];
 const chooseNextBtn = chooseBtns[1];
@@ -145,4 +145,42 @@ chooseNextBtn.addEventListener("click", function () {
 
 choosePrevBtn.addEventListener("click", function () {
   moveChooseCarousel("right");
+});
+
+// Common transition function
+const commonBtns = document.querySelectorAll(".issues_header .btns img");
+
+const commonCarousel = document.getElementById("dental");
+
+const commonPrevBtn = commonBtns[0];
+const commonNextBtn = commonBtns[1];
+
+let currentCommon = 0;
+const multipliercd = 420;
+
+function moveCommonCarousel(moveTo) {
+  if (moveTo === "left") {
+    if (currentCommon < 3) {
+      currentCommon++;
+      commonCarousel.style.left =
+        "-" + (currentCommon * multipliercd + currentCommon * 20) + "px";
+      return currentCommon;
+    }
+  }
+  if (moveTo === "right") {
+    if (currentCommon > 0) {
+      currentCommon--;
+      commonCarousel.style.left =
+        "-" + (currentCommon * multipliercd + currentCommon * 20) + "px";
+      return currentCommon;
+    }
+  }
+}
+
+commonNextBtn.addEventListener("click", function () {
+  moveCommonCarousel("left");
+});
+
+commonPrevBtn.addEventListener("click", function () {
+  moveCommonCarousel("right");
 });
