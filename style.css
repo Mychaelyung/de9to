@@ -22,9 +22,14 @@ a {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   color: var(--base-clr);
+  max-width: 100vw;
   overflow-x: hidden;
 }
 
@@ -42,25 +47,28 @@ input {
 }
 
 header {
-  background-color: var(--pry-clr);
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
-header .container {
+.showcase {
+  background-color: var(--pry-clr);
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 20px;
   overflow: hidden;
+  padding-inline: 4vw;
 }
 
-header .header_content {
+.showcase .header_content {
   display: flex;
   align-items: center;
   height: 80px;
   gap: 20px;
 }
 
-header .header_content p {
+.showcase .header_content p {
   text-wrap: nowrap;
 }
 
@@ -97,10 +105,6 @@ h5 {
 
 h6 {
   font-size: 18px;
-}
-
-h67 {
-  font-size: 16px;
 }
 
 .navbar {
@@ -141,16 +145,22 @@ h67 {
 .navlinks {
   background: white;
   border: 1px solid var(--accent-clr);
-  width: min(300px, 100%);
-  position: absolute;
+  width: 300px;
   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 20px;
   border-radius: 10px;
-  right: -100%;
+  transform: scale(0);
+  pointer-events: none;
   transition: 0.3s;
+  opacity: 0;
+  transform-origin: top right;
 }
 
 .navlinks.active {
-  right: 20px;
+  transform: scale(1);
+  pointer-events: all;
+  opacity: 1;
 }
 
 .navlinks ul {
@@ -424,7 +434,6 @@ h67 {
 .doctors {
   display: flex;
   align-items: stretch;
-  min-width: 420px;
   gap: 20px;
   position: relative;
   transition: left 0.5s;
@@ -435,9 +444,15 @@ h67 {
 }
 
 .doctors .profile {
+  min-width: 420px;
   background: white;
   padding: 20px;
   margin-bottom: 40px;
+}
+
+.doctors .profile > img {
+  width: 100%;
+  object-fit: cover;
 }
 
 .doctors .profile .doctor_info {
@@ -460,7 +475,7 @@ h67 {
 
 .doctors .profile .buttons {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 10px;
   border-radius: 4px;
   align-items: center;
@@ -1125,12 +1140,20 @@ button.ghost:hover {
   p {
     font-size: 14px !important;
   }
+  .doctors .profile {
+    min-width: 100%;
+  }
   footer .footer_top .footer_left {
     flex-direction: column;
   }
 
   .search_container_bottom {
     flex-direction: column;
+  }
+
+  .doctors .profile .buttons button {
+    width: 100% !important;
+    justify-content: center !important;
   }
 
   .gallery {

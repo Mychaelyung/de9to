@@ -31,12 +31,21 @@ const appointmentBtns = document.querySelectorAll(
 );
 
 const appointmentCarousel = document.querySelector(".doctors");
+const carouselImg = document.querySelectorAll(".doctors .profile");
+
+let carouselImgWidth = carouselImg[0].offsetWidth;
+
+window.addEventListener("resize", function () {
+  const newWidth = carouselImg[0].offsetWidth;
+  carouselImgWidth = newWidth;
+  return carouselImgWidth;
+});
 
 const appointmentPrevBtn = appointmentBtns[0];
 const appointmentNextBtn = appointmentBtns[1];
 
 let currentAppointment = 0;
-const multiplier = 420;
+// const multiplier = carouselImgWidth;
 
 function moveAppointmentCarousel(moveTo) {
   if (moveTo === "left") {
@@ -44,7 +53,7 @@ function moveAppointmentCarousel(moveTo) {
       currentAppointment++;
       appointmentCarousel.style.left =
         "-" +
-        (currentAppointment * multiplier + currentAppointment * 20) +
+        (currentAppointment * carouselImgWidth + currentAppointment * 20) +
         "px";
       return currentAppointment;
     }
@@ -54,7 +63,7 @@ function moveAppointmentCarousel(moveTo) {
       currentAppointment--;
       appointmentCarousel.style.left =
         "-" +
-        (currentAppointment * multiplier + currentAppointment * 20) +
+        (currentAppointment * carouselImgWidth + currentAppointment * 20) +
         "px";
       return currentAppointment;
     }
@@ -75,19 +84,28 @@ const blogBtns = document.querySelectorAll(
 );
 
 const blogCarousel = document.getElementById("blog");
+const blogImg = document.querySelectorAll("#blog .profile");
+
+let blogImgWidth = blogImg[0].offsetWidth;
+
+window.addEventListener("resize", function () {
+  const neWidth = blogImg[0].offsetWidth;
+  blogImgWidth = neWidth;
+  return blogImgWidth;
+});
 
 const blogPrevBtn = blogBtns[2];
 const blogNextBtn = blogBtns[3];
 
 let currentBlog = 0;
-const multiplierb = 420;
+// const multiplierb = carouselImgWidth;
 
 function moveBlogCarousel(moveTo) {
   if (moveTo === "left") {
     if (currentBlog < 3) {
       currentBlog++;
       blogCarousel.style.left =
-        "-" + (currentBlog * multiplierb + currentBlog * 20) + "px";
+        "-" + (currentBlog * blogImgWidth + currentBlog * 20) + "px";
       return currentBlog;
     }
   }
@@ -95,7 +113,7 @@ function moveBlogCarousel(moveTo) {
     if (currentBlog > 0) {
       currentBlog--;
       blogCarousel.style.left =
-        "-" + (currentBlog * multiplierb + currentBlog * 20) + "px";
+        "-" + (currentBlog * blogImgWidth + currentBlog * 20) + "px";
       return currentBlog;
     }
   }
@@ -118,7 +136,7 @@ const choosePrevBtn = chooseBtns[0];
 const chooseNextBtn = chooseBtns[1];
 
 let currentChoose = 0;
-const multiplierc = 420;
+const multiplierc = carouselImgWidth;
 
 function moveChooseCarousel(moveTo) {
   if (moveTo === "left") {
@@ -156,7 +174,7 @@ const commonPrevBtn = commonBtns[0];
 const commonNextBtn = commonBtns[1];
 
 let currentCommon = 0;
-const multipliercd = 420;
+const multipliercd = carouselImgWidth;
 
 function moveCommonCarousel(moveTo) {
   if (moveTo === "left") {
